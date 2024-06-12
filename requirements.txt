@@ -1,0 +1,6 @@
+channels==4.1.0
+Django==5.0.4
+mediapipe==0.10.11
+numpy==1.23.1
+opencv_contrib_python==4.9.0.80
+opencv_python==4.7.0.68
