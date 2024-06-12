@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta name="csrf_token" content="{{ csrf_token }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinex</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+</head>
+<body> 
+    <header class="header">
+        <div class="header__brand"><img class="header__icon" alt="icon" src="..\media\icon.ico"><p class="header__brand-name">Kinex</p></div>
+        <nav class="header__nav">
+            <ul class="header__nav-bar" role="list">
+                <li><a href="/image.html">Imagen</a></li>
+                <li><a href="/video.html">Video</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="index__main">
+       <h1 class="index__primary-header">Kinex</h1>
+       <section class="index__text">
+            <p class="index__text-paragraph">
+                <b>Kinex</b> tiene como objetivo facilitar el análisis cinemático del cuerpo humano, con potenciales usos en rehabilitación y prevención de lesiones, con especial atención a los movimientos articulares de tipo ginglimo y universal, mediante el uso de captura de video y procesamiento en tiempo real de datos biomecánicos.
+            </p>
+            <p class="index__text-paragraph">
+                Mediante el uso de tecnologías web y de vision por computadora, <b>Kinex</b> tiene la capacidad de medir los ángulos de las articulaciones universales y/o gínglimales. Solo debes de tener una webcam funcional y conexión estable a internet.  <b>Kinex</b> dispone los datos biomecanicos registrados en formato .CSV para su descarga.
+            </p>
+            <p>
+                Con <b>Kinex</b> tienes dos modalidades, una para imagenes y otra para video. De cualquier forma, <b>Kinex</b> va a obtener los puntos articulares y sus posiciones y ángulos con precisión.
+            </p>
+            <p class="index__text-paragraph">
+                <b>Kinex</b> puede operar tanto en el plano sagital como en el plano frontal, siendo resistente a la ofuscación visual.
+                Con Kinex puedes seleccionar la articulación de interes ya sea para el lado izquierdo o derecho del cuerpo. Puedes escoger (La selección solo aplica para la modalidad de video):
+                Glenohumeral, Humeroulnar, Coxofemoral o Tibiofemoral.
+            </p>
+            <p class="index__text-paragraph">
+                <b>Kinex</b> usa una paleta de 3 colores, el rojo, el azul y el verde. El rojo indica un punto lateral o distal, el azul indica un punto medial o proximal y el verde corresponde al punto articular.
+                De estos se pueden obtener gráficas tales como el ángulo articular en función del tiempo y las posiciones normalizadas de los puntos lateral y medial respecto al tiempo, con el objetivo de realizar análisis cinematicos planares.
+            </p>
+            <p class="index__text-paragraph">
+                Inicia tus estudios biomecanicos con <b>Kinex</b>!. Puedes ir a la sección de <a href="/image.html">Imagen</a> o <a href="/video.html">Video</a> para comenzar.
+            </p>
+       </section>
+    </main>
+    <footer class="footer">
+        <section class="authors">
+            <p class="authors-names">
+                Franco Kurte | <a class="github-profile" href="https://github.com/FrancoKurte" target="_blank">GitHub Profile</a>
+            </p>
+        </section>
+    </footer>
+    <script src="{% static 'utils.js' %}"></script>
+    <script src="{% static 'index.js' %}"></script>
+</body>
+</html>

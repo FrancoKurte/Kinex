@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="csrf_token" content="{{ csrf_token }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinex-Imagen</title>
+    <p class="hide-django-tag">{% load static %}</p>
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <link rel="icon" href="..\media\icon.ico" type="image/png">
+</head>
+<body class="img-pro">
+    <header class="header">
+        <div class="header__brand"><img class="header__icon" alt="icon" src="..\media\icon.ico"><p class="header__brand-name">Kinex</p></div>
+        <nav class="header__nav">
+            <ul class="header__nav-bar" role="list">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/video.html">Video</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="img-pro__main">
+        <div class="img-pro__buttons">
+            <button class="btn img-pro__btn img-pro__add-box-btn" type="button">Guardar Imagen</button>
+            <button class="btn img-pro__btn img-pro__delete-image-btn" name="eliminar-imagen">Limpiar</button>
+            <button class="btn img-pro__btn img-pro__download-data-btn" type="button">Descargar Data</button>
+        </div>
+        <section class="img-pro__hero">
+            <section class="img-pro__image_processing">
+                <div class="img-pro__visualizations-container">
+                    <div class="img-pro__visualization-original">
+                        <canvas class="img-pro__canvas img-pro__canvas-original"></canvas>
+                            <input class="btn img-pro__btn img-pro__img-uploader" type="file" multiple="multiple" 
+                            accept="image/png image/jpeg image/jpg" title="upload an image" name="canvas-input">
+                            <div class="btn img-pro__btn img-pro__upload-label">Subir Imagen</div>
+                    </div>
+                    <div class="img-pro__visualization-processed">
+                        <button class="btn img-pro__btn img-pro__processing-btn" name="canvas-output">Iniciar Procesamiento</button>
+                        <canvas class="img-pro__canvas img-pro__canvas-processed"></canvas>
+                    </div>
+                </div>
+                <div class="img-pro__numerical-results">
+                    <h3 class="img-pro__table-title">Resultados</h3>
+                    <table class="img-pro__results-table">
+                    <tr class="img-pro__table-data"><th class="table-header">Joint</th><th class="table-header">Angle</th></tr>
+                    </table>
+                </div>
+            </section>
+        </section>
+        <section class="img-pro__saved-images">
+            <div class="img-pro__boxes"></div>
+        </section>
+    </main>
+    <footer class="footer">
+        <section class="authors">
+            <p class="authors-names">
+                Franco Kurte | <a class="github-profile" href="https://github.com/FrancoKurte" target="_blank">GitHub Profile</a>
+            </p>
+        </section> 
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2csv/5.0.7/json2csv.umd.js"></script>
+    <script src="{% static 'utils.js' %}" defer></script>
+    <script src="{% static 'image.js' %}" defer></script>
+</body>
+</html>

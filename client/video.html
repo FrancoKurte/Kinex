@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta name="csrf_token" content="{{ csrf_token }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinex-Video</title>
+    <link rel="shorcut icon" href="{% static './favicon.ico'%}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+</head>
+<body class="video">
+    <header class="header">
+        <div class="header__brand"><img class="header__icon" alt="icon" src="..\media\icon.ico"><p class="header__brand-name">Kinex</p></div>
+        <nav class="header__nav">
+            <ul class="header__nav-bar" role="list">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/image.html">Imagen</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="video__main">
+        <div class="video__toggle video__record-toggle">
+            <div class="video__toggle-meta-btns video__record-toggle-meta-btns">
+                <button class="btn video__record-toggle-back-btn">Atras</button>
+                <button class="btn video__close-btn video__record-toggle-close-btn" type="button">&#10005</button>
+            </div>
+            <div class="video__record-toggle-subcontainer">
+                <button class="btn video__toggle-btn video__local-record" type="button">Camara Local</button>
+                <button class="btn video__toggle-btn video__external-record" type="button">Camara Externa</button>
+            </div>
+            <div class="video__record-code-container">
+                <div class="video__record-message-container">
+                    <p class="video__record-message">Para usar camara externa introduce el siguiente codigo en la aplicación web</p>
+                </div>
+                <p class="video__record-code"></p>
+            </div>
+        </div>
+        <div class="video__toggle video__code-toggle">
+            <div class="video__toggle-meta-btns video__code-toggle-meta-btns">
+                <button class="btn video__close-btn video__code-toggle-close-btn" type="button">&#10005</button>
+            </div>
+            <div class="video__toggle-content">
+                <p>Ingresa el código para empezar la transmisión.</p>
+                <div class="video__code-toggle-btns">
+                    <button class="btn video__submit-code">Aceptar</button>
+                    <input class="video__code-input" value="">
+                </div>
+            </div>
+        </div>
+        <div class="video__hero">
+            <section class="video__meta-container">
+                <div class="video__buttons-container">
+                    <button type="button" class="btn video__btn video__record-btn">Captar Video</button>
+                    <button class="btn video_btn video__stop-recording-btn" type="button">Detener Grabación</button>
+                    <button class="btn video_btn video__start-transmission-btn" type="button">Transmitir Video</button>
+                    <a class="btn video_btn video__download-csv" href="">No Data</a>
+                    <div class="video__selection">
+                        <p class="btn video_btn text-type-btn">Lado:
+                            <select class="btn video_btn video__select-option video__select-side">
+                                <option selected>Sin seleccionar</option>
+                                <option>Izquierdo</option>
+                                <option>Derecho</option>
+                            </select>
+                        </p>
+                        <p class="btn video_btn text-type-btn">Articulación: 
+                            <select class="btn video_btn video__select-option video__select-joint">
+                                    <option selected>Sin seleccionar</option>
+                                    <option>Glenohumeral</option>
+                                    <option>Humeroulnar</option>
+                                    <option>Coxofemoral</option>
+                                    <option>Tibiofemoral</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+            </section> 
+            <div class="video__processing-container">
+                <section class="video__media-container">
+                    <div class="video__video-player-container">
+                        <video class="video__video-player" id="video-player" autoplay="false" hidden></video>
+                        <img class="video__mainImage">
+                        <canvas class="video__canvasData" hidden></canvas>
+                    </div>
+                </section>
+                <section class="video__plots-container">
+                    <canvas class="video__plot video__plot-angle"></canvas>
+                    <canvas class="video__plot video__plot-x"></canvas>
+                    <canvas class="video__plot video__plot-y"></canvas>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <section class="authors">
+            <p class="authors-names">
+                Franco Kurte | <a class="github-profile" href="https://github.com/FrancoKurte" target="_blank">GitHub Profile</a>
+            </p>
+        </section>
+    </footer>
+    <script src="{% static 'utils.js' %}" defer></script>
+    <script src="{% static './frames_worker.js' %}"></script>
+    <scrip src="{% static './plotting_worker.js' %}"></scrip>
+    <script src="{% static 'video.js' %}" defer></script>
+</body>
+</html>
